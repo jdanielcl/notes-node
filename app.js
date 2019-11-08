@@ -9,7 +9,18 @@ const yargs = require('yargs');
 const notes = require('./notes');
 
 //Watch which argument is passed through the command line
-const argv = yargs.argv;
+const argv = yargs.command('add', 'Add a new note', {
+    title: {
+        describe: 'Title of note',
+        demand: true,
+        alias: 't'
+    },
+    body: {
+        describe: 'body of note',
+        demand: true,
+        alias: 'b'
+    }
+}).help().argv;
 var command = process.argv[2];
 
 // console.log(process.argv);
